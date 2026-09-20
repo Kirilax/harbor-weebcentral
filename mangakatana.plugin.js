@@ -189,12 +189,22 @@ function cataloguePath(offset) {
 
 const plugin = {
   id: "mangakatana-en",
-  name: "MangaKatana Manhwa (English)",
+  name: "MangaKatana (English Manga, Manhwa, BL & GL)",
 
   async popular(offset, tagId) {
     const page = Math.floor(Math.max(0, Number(offset) || 0) / PAGE_SIZE) + 1;
-    const genre = tagId === "webtoon" ? "webtoon" : "manhwa";
-    const path = "/genre/" + genre + (page > 1 ? "/page/" + page : "");
+    const genres = {
+      manhwa: "manhwa",
+      webtoon: "webtoon",
+      "bl-shounen-ai": "shounen-ai",
+      "bl-yaoi": "yaoi",
+      "gl-shoujo-ai": "shoujo-ai",
+      "gl-yuri": "yuri"
+    };
+    const genre = genres[String(tagId || "")];
+    const path = genre
+      ? "/genre/" + genre + (page > 1 ? "/page/" + page : "")
+      : cataloguePath(offset);
     return parseSeriesList(await request(buildUrl(path, [])));
   },
 
@@ -221,7 +231,14 @@ const plugin = {
   },
 
   async tags() {
-    return [{ id: "webtoon", name: "Webtoon", group: "Format" }];
+    return [
+      { id: "manhwa", name: "Manhwa", group: "Format" },
+      { id: "webtoon", name: "Webtoon", group: "Format" },
+      { id: "bl-shounen-ai", name: "BL — Shounen Ai", group: "BL / GL" },
+      { id: "bl-yaoi", name: "BL — Yaoi", group: "BL / GL" },
+      { id: "gl-shoujo-ai", name: "GL — Shoujo Ai", group: "BL / GL" },
+      { id: "gl-yuri", name: "GL — Yuri", group: "BL / GL" }
+    ];
   }
 };
 
