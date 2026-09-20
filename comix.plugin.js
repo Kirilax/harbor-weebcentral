@@ -167,7 +167,7 @@ function toChapter(item) {
 
 const plugin = {
   id: "comix-en",
-  name: "Comix.to (English)",
+  name: "Comix.to (English Manga & Manhwa)",
 
   async popular(offset, tagId) {
     const result = await api("/manga", mangaEntries(offset, "", tagId));
@@ -236,13 +236,7 @@ const plugin = {
       const absolute = /^https?:\/\//i.test(url)
         ? url
         : baseUrl + "/" + String(url).replace(/^\/+/, "");
-      return {
-        url: absolute,
-        headers: {
-          Referer: BASE + "/",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Harbor/1.0",
-        },
-      };
+      return absolute;
     }).filter(Boolean);
   },
 };
