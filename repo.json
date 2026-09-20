@@ -1,0 +1,13 @@
+{
+  "name": "Harbor WeebCentral Source",
+  "plugins": [
+    {
+      "id": "weebcentral-en",
+      "name": "WeebCentral (English)",
+      "version": "0.1.0",
+      "lang": "en",
+      "nsfw": false,
+      "entry": "weebcentral.plugin.js"
+    }
+  ]
+}
