@@ -1,0 +1,11 @@
+{
+  "name": "harbor-weebcentral",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental WeebCentral English manga source for Harbor",
+  "scripts": {
+    "check": "node --check weebcentral.plugin.js",
+    "test": "node test/test-plugin.js"
+  },
+  "license": "MIT"
+}
