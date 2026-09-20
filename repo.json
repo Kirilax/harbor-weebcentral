@@ -20,7 +20,7 @@
     {
       "id": "comix-en",
       "name": "Comix.to (English Manga & Manhwa)",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "lang": "en",
       "nsfw": false,
       "entry": "comix.plugin.js"
