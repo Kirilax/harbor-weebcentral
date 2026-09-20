@@ -10,7 +10,11 @@ In Harbor, open **Manga → Set up a source → Extensions** and add:
 https://raw.githubusercontent.com/Kirilax/harbor-weebcentral/main/repo.json
 ```
 
-Then install either **WeebCentral (English)** or **MangaDex Manhwa (Korean → English)**. The manhwa source shows Korean-origin titles that have English chapters on MangaDex.
+Available sources:
+
+- **WeebCentral (English)** — broad English catalog.
+- **MangaDex Manhwa (Korean → English)** — Korean-origin titles with English chapters on MangaDex.
+- **Comix.to (English Manga & Manhwa)** — a broader mixed catalog, useful for finding additional English-translated manhwa.
 
 ## Current status
 
@@ -27,6 +31,7 @@ npm test
 
 - Harbor plugin contract and manifest structure: `SilverHazer/harbor-manga-sources`
 - Current WeebCentral routes and parsing behavior: `axsddlr/weebcentral-dl`
+- Comix provider: `SilverHazer/harbor-manga-sources`; request signing derived from the MIT-licensed `N3uralCreativity/comix-downloader`
 
 ## License
 
