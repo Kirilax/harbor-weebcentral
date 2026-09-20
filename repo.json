@@ -18,12 +18,12 @@
       "entry": "mangadex-manhwa.plugin.js"
     },
     {
-      "id": "comix-en",
-      "name": "Comix.to (English Manga & Manhwa)",
-      "version": "1.0.1",
+      "id": "atsu-en",
+      "name": "Atsu (English Manga & Manhwa)",
+      "version": "1.1.0",
       "lang": "en",
       "nsfw": false,
-      "entry": "comix.plugin.js"
+      "entry": "atsu.plugin.js"
     }
   ]
 }
