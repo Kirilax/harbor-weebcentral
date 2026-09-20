@@ -14,7 +14,7 @@ Available sources:
 
 - **WeebCentral (English)** — broad English catalog.
 - **MangaDex Manhwa (Korean → English)** — Korean-origin titles with English chapters on MangaDex.
-- **Comix.to (English Manga & Manhwa)** — a broader mixed catalog, useful for finding additional English-translated manhwa.
+- **Atsu (English Manga & Manhwa)** — a broader mixed catalog with direct page URLs, useful for additional English-translated manhwa.
 
 ## Current status
 
@@ -31,7 +31,7 @@ npm test
 
 - Harbor plugin contract and manifest structure: `SilverHazer/harbor-manga-sources`
 - Current WeebCentral routes and parsing behavior: `axsddlr/weebcentral-dl`
-- Comix provider: `SilverHazer/harbor-manga-sources`; request signing derived from the MIT-licensed `N3uralCreativity/comix-downloader`
+- Atsu provider: `SilverHazer/harbor-manga-sources`
 
 ## License
 
