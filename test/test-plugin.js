@@ -21,4 +21,7 @@ assert.deepEqual(chapters.map(x => x.chapter), ["2", "1"]);
 const pagesJson = JSON.stringify({images:[{src:"https://cdn.example/1.jpg"},{src:"/pages/2.jpg"}]});
 assert.deepEqual(parser.parsePageUrls(pagesJson), ["https://cdn.example/1.jpg", "https://weebcentral.com/pages/2.jpg"]);
 
+const fallbackHtml = '<img src="/static/images/broken_image.jpg"><img src="https://scans.lastation.us/manga/Test/001.jpg" onerror="this.src=\'/static/images/broken_image.jpg\'">';
+assert.deepEqual(parser.parsePageUrls(fallbackHtml), ["https://scans.lastation.us/manga/Test/001.jpg"]);
+
 console.log("All parser and contract-shape tests passed.");
