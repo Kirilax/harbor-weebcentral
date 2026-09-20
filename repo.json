@@ -4,7 +4,7 @@
     {
       "id": "weebcentral-en",
       "name": "WeebCentral (English)",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "lang": "en",
       "nsfw": false,
       "entry": "weebcentral.plugin.js"
