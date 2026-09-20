@@ -19,8 +19,8 @@
     },
     {
       "id": "mangakatana-en",
-      "name": "MangaKatana Manhwa (English)",
-      "version": "1.0.0",
+      "name": "MangaKatana (English Manga, Manhwa, BL & GL)",
+      "version": "1.1.0",
       "lang": "en",
       "nsfw": false,
       "entry": "mangakatana.plugin.js"
