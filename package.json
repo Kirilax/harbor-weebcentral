@@ -1,6 +1,6 @@
 {
   "name": "harbor-weebcentral",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Experimental WeebCentral English manga source for Harbor",
   "scripts": {
