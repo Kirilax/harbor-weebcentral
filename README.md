@@ -1,6 +1,6 @@
 # Harbor WeebCentral Source
 
-An **experimental** English WeebCentral source plugin for Harbor's Manga reader.
+An **experimental** English WeebCentral source plugin for Harbor's Manga reader. Version 0.1.1 adds the HTMX chapter headers required by WeebCentral and filters its broken-image placeholder.
 
 ## Install
 
