@@ -182,22 +182,30 @@ function parsePageUrls(body) {
   try {
     const payload = JSON.parse(body);
     if (payload && Array.isArray(payload.images)) {
-      return payload.images.map(function (item) { return absoluteUrl(item && item.src); }).filter(Boolean);
+      return payload.images.map(function (item) { return absoluteUrl(item && item.src); }).filter(isMangaPageUrl);
     }
   } catch (_error) {}
   const urls = [];
   const seen = new Set();
-  const imagePattern = /<(?:img|source)\b[^>]*(?:data-src|src|srcset)=["']([^"']+)["']/gi;
+  const imagePattern = /<(?:img|source)\b[^>]*>/gi;
   let match;
   while ((match = imagePattern.exec(body))) {
-    const candidate = match[1].split(/[\s,]/)[0];
+    const sourceMatch = /(?:^|\s)(?:data-src|src|srcset)\s*=\s*["']([^"']+)["']/i.exec(match[0]);
+    if (!sourceMatch) continue;
+    const candidate = sourceMatch[1].split(/[\s,]/)[0];
     const url = absoluteUrl(candidate);
-    if (url && !seen.has(url) && !/\.(?:svg|gif)(?:\?|$)/i.test(url)) {
+    if (isMangaPageUrl(url) && !seen.has(url)) {
       urls.push(url);
       seen.add(url);
     }
   }
   return urls;
+}
+
+function isMangaPageUrl(url) {
+  if (!url || !/^https?:\/\//i.test(url)) return false;
+  return !/(?:broken[_-]?image|placeholder|loading|spinner|logo|icon|banner|avatar|advert|tracker|promo|\/static\/)/i.test(url) &&
+    !/\.(?:svg|gif)(?:\?|$)/i.test(url);
 }
 
 function catalogueUrl(query, offset, popular) {
@@ -234,9 +242,16 @@ const plugin = {
   },
 
   async pageUrls(chapterId) {
-    const html = await request(buildUrl("/chapters/" + encodeURIComponent(String(chapterId).toUpperCase()) + "/images", [
-      ["is_prev", "False"], ["current_page", 1], ["reading_style", "long_strip"]
-    ]), { "HX-Request": "true" }, true);
+    const id = String(chapterId).toUpperCase();
+    const chapterUrl = buildUrl("/chapters/" + encodeURIComponent(id), []);
+    const html = await request(buildUrl("/chapters/" + encodeURIComponent(id) + "/images", [
+      ["is_prev", "False"], ["current_page", 1], ["reading_style", "long_strip"], ["_", id]
+    ]), {
+      accept: "*/*",
+      referer: chapterUrl,
+      "HX-Request": "true",
+      "HX-Current-URL": chapterUrl
+    }, true);
     return html ? parsePageUrls(html) : [];
   },
 
