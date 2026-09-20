@@ -10,7 +10,7 @@ In Harbor, open **Manga → Set up a source → Extensions** and add:
 https://raw.githubusercontent.com/Kirilax/harbor-weebcentral/main/repo.json
 ```
 
-Then install and select **WeebCentral (English)**.
+Then install either **WeebCentral (English)** or **MangaDex Manhwa (Korean → English)**. The manhwa source shows Korean-origin titles that have English chapters on MangaDex.
 
 ## Current status
 
