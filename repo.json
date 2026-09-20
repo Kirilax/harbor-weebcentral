@@ -16,6 +16,14 @@
       "lang": "en",
       "nsfw": false,
       "entry": "mangadex-manhwa.plugin.js"
+    },
+    {
+      "id": "comix-en",
+      "name": "Comix.to (English Manga & Manhwa)",
+      "version": "1.0.0",
+      "lang": "en",
+      "nsfw": false,
+      "entry": "comix.plugin.js"
     }
   ]
 }
