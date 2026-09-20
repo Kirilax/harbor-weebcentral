@@ -1,5 +1,5 @@
 {
-  "name": "Harbor WeebCentral Source",
+  "name": "Harbor English Manga & Manhwa Sources",
   "plugins": [
     {
       "id": "weebcentral-en",
@@ -8,6 +8,14 @@
       "lang": "en",
       "nsfw": false,
       "entry": "weebcentral.plugin.js"
+    },
+    {
+      "id": "mangadex-manhwa-en",
+      "name": "MangaDex Manhwa (Korean → English)",
+      "version": "1.0.0",
+      "lang": "en",
+      "nsfw": false,
+      "entry": "mangadex-manhwa.plugin.js"
     }
   ]
 }
